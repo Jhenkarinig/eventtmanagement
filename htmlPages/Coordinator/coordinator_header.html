@@ -1,0 +1,19 @@
+{% load static %}
+
+<nav id="titleBar">
+    <div id="logo_container">
+        <span style="font-family:'Arial Black', sans-serif;font-size:30px;color:#007bff;">TECH 2024</span>
+    </div>
+    <div class="links">
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+            <button type="submit" id="profile_btn" class="submit_btn"><a href="{% url 'coordinator_dashboard' %}">Hi, {{user.fname}}</a></button>
+            <div class="options">
+                <a href="{% url 'coordinator_dashboard' %}">Dashboard</a>
+                <a href="{% url 'coordinator_profile' %}">Profile</a>
+                <a href="{% url 'coordinator_logout' %}">Log Out</a>  
+            </div>
+        </div>
+        {% endif %}        
+    </div>
+</nav>
